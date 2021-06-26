@@ -6,7 +6,7 @@ pipeline {
 
             steps {
                 echo 'Compiling the application...'
-                withMaven(maven : 'jenkinsmaven') {
+                withMaven(maven : 'maven_3_8_1') {
                     sh 'mvn clean compile'
                 }
             }
@@ -16,7 +16,7 @@ pipeline {
 
             steps {
                 echo 'Testing the application...'
-                withMaven(maven : 'jenkinsmaven') {
+                withMaven(maven : 'maven_3_8_1') {
                     sh 'mvn test'
                 }
             }
@@ -25,7 +25,7 @@ pipeline {
         stage ('Deployment Stage') {
             steps {
                 echo 'Deploying the application...'
-                withMaven(maven : 'jenkinsmaven') {
+                withMaven(maven : 'maven_3_8_1') {
                     sh 'mvn deploy'
                 }
             }
